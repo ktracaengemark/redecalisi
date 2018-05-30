@@ -156,7 +156,6 @@ class Tipodespesa_model extends CI_Model {
 					Tab_TipoDespesa AS TD
 
 				WHERE 
-					TD.Empresa = ' . $_SESSION['log']['Empresa'] . ' AND 
 					TD.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
 					(TD.Categoriadesp = "2" OR TD.Categoriadesp = "3")
 				ORDER BY
@@ -174,7 +173,6 @@ class Tipodespesa_model extends CI_Model {
 					Tab_TipoDespesa AS TD
 
 				WHERE 
-					TD.Empresa = ' . $_SESSION['log']['Empresa'] . ' AND 
 					TD.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
 					(TD.Categoriadesp = "2" OR TD.Categoriadesp = "3")
 				ORDER BY

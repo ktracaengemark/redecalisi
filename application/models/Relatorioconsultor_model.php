@@ -5080,7 +5080,6 @@ exit();*/
             FROM
                 Tab_FormaPag AS P
             WHERE
-                P.Empresa = ' . $_SESSION['log']['Empresa'] . ' AND
 				P.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . '
             ORDER BY
                 FormaPag ASC
@@ -5105,7 +5104,6 @@ exit();*/
 			FROM
 				Tab_TipoDespesa AS TD
 			WHERE
-				TD.Empresa = ' . $_SESSION['log']['Empresa'] . ' AND
 				TD.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
 				(TD.Categoriadesp = "1" OR TD.Categoriadesp = "3")
 			ORDER BY
@@ -5130,7 +5128,6 @@ exit();*/
 			FROM
 				Tab_TipoReceita AS TR
 			WHERE
-				TR.Empresa = ' . $_SESSION['log']['Empresa'] . ' AND
 				TR.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . '
 			ORDER BY
 				TR.TipoReceita
@@ -5254,9 +5251,9 @@ exit();*/
 					LEFT JOIN Tab_Prodaux2 AS TP2 ON TP2.idTab_Prodaux2 = OB.Prodaux2
 					LEFT JOIN Tab_Prodaux3 AS TP3 ON TP3.idTab_Prodaux3 = OB.Prodaux3
             WHERE
-				OB.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND				
-				(OB.ProdutoProprio = ' . $_SESSION['log']['id'] . ' OR 
-				OB.ProdutoProprio = "0")
+				OB.idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo'] . ' AND
+				(OB.Empresa = ' . $_SESSION['log']['Empresa'] . ' OR OB.Empresa = "0" ) AND
+				(OB.ProdutoProprio = ' . $_SESSION['log']['id'] . ' OR OB.ProdutoProprio = "0")
             ORDER BY
                 OB.CodProd,
 				TP3.Prodaux3,

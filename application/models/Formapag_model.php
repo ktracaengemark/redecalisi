@@ -152,7 +152,6 @@ class Formapag_model extends CI_Model {
                     . 'FROM '
                     . 'Tab_FormaPag '
                     . 'WHERE '
-                    . 'Empresa = ' . $_SESSION['log']['Empresa'] . ' AND '
                     . 'idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo']. ' '
 					. 'ORDER BY FormaPag ASC ');		
 					
@@ -164,7 +163,6 @@ class Formapag_model extends CI_Model {
                     . 'FROM '
                     . 'Tab_FormaPag '
                     . 'WHERE '
-                    . 'Empresa = ' . $_SESSION['log']['Empresa'] . ' AND '
                     . 'idTab_Modulo = ' . $_SESSION['log']['idTab_Modulo']. ' '
 					. 'ORDER BY FormaPag ASC ');
             

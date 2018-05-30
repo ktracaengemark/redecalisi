@@ -111,10 +111,8 @@ $db['default'] = array(
 	'password' => '',
 */
     #'database' => 'ci',
-    #'database' => 'app',
-	'database' => 'app.redes',
-	#'database' => 'app.calisi',
-	#'database' => 'app.calisi.testes',
+	#'database' => 'app.redes',
+	'database' => 'app.redes.testes',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => TRUE,
