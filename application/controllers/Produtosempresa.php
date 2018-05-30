@@ -57,13 +57,14 @@ class Produtosempresa extends CI_Controller {
 			'UnidadeProduto',
 			'CodProd',
 			'Fornecedor',
-			#'ValorCompraProduto',
+			'ValorCompraProduto',
             'Produtos',
 			'Prodaux1',
 			'Prodaux2',
 			'Prodaux3',
 			#'OrigemOrca',
 			'ProdutoProprio',
+			'Pontos',
         ), TRUE));
 
         //Dá pra melhorar/encurtar esse trecho (que vai daqui até onde estiver
@@ -156,7 +157,7 @@ class Produtosempresa extends CI_Controller {
             $data['produtos']['idSis_Usuario'] = $_SESSION['log']['id'];
             #$data['produtos']['idSis_EmpresaFilial'] = $_SESSION['log']['idSis_EmpresaFilial'];
 			$data['produtos']['idTab_Modulo'] = $_SESSION['log']['idTab_Modulo'];
-			#$data['produtos']['ValorCompraProduto'] = str_replace(',', '.', str_replace('.', '', $data['produtos']['ValorCompraProduto']));
+			$data['produtos']['ValorCompraProduto'] = str_replace(',', '.', str_replace('.', '', $data['produtos']['ValorCompraProduto']));
             #$data['produtos']['OrigemOrca'] = $data['produtos']['OrigemOrca'];
 			$data['produtos']['ProdutoProprio'] = $data['produtos']['ProdutoProprio'];
 			$data['produtos']['idTab_Produtos'] = $this->Produtosempresa_model->set_produtos($data['produtos']);
@@ -234,11 +235,12 @@ class Produtosempresa extends CI_Controller {
 			'UnidadeProduto',
 			'CodProd',
 			'Fornecedor',
-			#'ValorCompraProduto',            
+			'ValorCompraProduto',            
             'Produtos',
 			'Prodaux1',
 			'Prodaux2',
 			'Prodaux3',
+			'Pontos',
         ), TRUE));
 
         //Dá pra melhorar/encurtar esse trecho (que vai daqui até onde estiver
@@ -349,7 +351,7 @@ class Produtosempresa extends CI_Controller {
             #$data['produtos']['idSis_Usuario'] = $_SESSION['log']['id'];
             #$data['produtos']['idSis_EmpresaFilial'] = $_SESSION['log']['idSis_EmpresaFilial'];
 			$data['produtos']['idTab_Modulo'] = $_SESSION['log']['idTab_Modulo'];
-			#$data['produtos']['ValorCompraProduto'] = str_replace(',', '.', str_replace('.', '', $data['produtos']['ValorCompraProduto']));
+			$data['produtos']['ValorCompraProduto'] = str_replace(',', '.', str_replace('.', '', $data['produtos']['ValorCompraProduto']));
 
             $data['update']['produtos']['anterior'] = $this->Produtosempresa_model->get_produtos($data['produtos']['idTab_Produtos']);
             $data['update']['produtos']['campos'] = array_keys($data['produtos']);

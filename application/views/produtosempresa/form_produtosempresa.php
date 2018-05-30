@@ -48,22 +48,6 @@
 											}
 											?>
 										</select>
-									</div>																	
-									<div class="col-md-4">
-										<label for="Fornecedor">Fornecedor</label>
-										<select data-placeholder="Selecione uma opção..." class="form-control" <?php echo $readonly; ?>
-												id="Fornecedor" name="Fornecedor">
-											<option value="">-- Selecione uma opção --</option>
-											<?php
-											foreach ($select['Fornecedor'] as $key => $row) {
-												if ($produtos['Fornecedor'] == $key) {
-													echo '<option value="' . $key . '" selected="selected">' . $row . '</option>';
-												} else {
-													echo '<option value="' . $key . '">' . $row . '</option>';
-												}
-											}
-											?>
-										</select>
 									</div>
 									<div class="col-md-2">
 										<label for="UnidadeProduto">Unidade:</label>
@@ -81,15 +65,6 @@
 											?>
 										</select>
 									</div>
-									
-								</div>
-								<div class="row">									
-																		
-									<div class="col-md-2">
-										<label for="CodProd">Código:</label><br>
-										<input type="text" class="form-control" maxlength="25"
-												name="CodProd" value="<?php echo $produtos['CodProd'] ?>">
-									</div>
 									<div class="col-md-2">
 										<label for="Prodaux3">Categoria:</label>
 										<select data-placeholder="Selecione uma opção..." class="form-control" <?php echo $readonly; ?>
@@ -105,11 +80,6 @@
 											}
 											?>
 										</select>
-									</div>
-									<div class="col-md-4">
-										<label for="Produtos">Desc. Produto/Serviço:*</label><br>
-										<input type="text" class="form-control" maxlength="200"
-												name="Produtos" value="<?php echo $produtos['Produtos'] ?>">
 									</div>
 									<div class="col-md-2">
 										<label for="Prodaux1">Aux1:</label>
@@ -143,8 +113,35 @@
 											?>
 										</select>
 									</div>
-									<!--
-									<div class="col-md-3">
+								</div>
+								<div class="row">									
+									<div class="col-md-2">
+										<label for="Fornecedor">Fornecedor</label>
+										<select data-placeholder="Selecione uma opção..." class="form-control" <?php echo $readonly; ?>
+												id="Fornecedor" name="Fornecedor">
+											<option value="">-- Selecione uma opção --</option>
+											<?php
+											foreach ($select['Fornecedor'] as $key => $row) {
+												if ($produtos['Fornecedor'] == $key) {
+													echo '<option value="' . $key . '" selected="selected">' . $row . '</option>';
+												} else {
+													echo '<option value="' . $key . '">' . $row . '</option>';
+												}
+											}
+											?>
+										</select>
+									</div>
+									<div class="col-md-2">
+										<label for="CodProd">Código:</label><br>
+										<input type="text" class="form-control" maxlength="25"
+												name="CodProd" value="<?php echo $produtos['CodProd'] ?>">
+									</div>
+									<div class="col-md-4">
+										<label for="Produtos">Desc. Produto/Serviço:*</label><br>
+										<input type="text" class="form-control" maxlength="200"
+												name="Produtos" value="<?php echo $produtos['Produtos'] ?>">
+									</div>
+									<div class="col-md-2">
 										<label for="ValorCompraProduto">Custo:</label><br>
 										<div class="input-group">
 											<span class="input-group-addon" id="basic-addon1">R$</span>
@@ -152,7 +149,11 @@
 													name="ValorCompraProduto" value="<?php echo $produtos['ValorCompraProduto'] ?>">
 										</div>
 									</div>
-									-->
+									<div class="col-md-2">
+										<label for="Pontos">Pontos:</label><br>
+										<input type="text" class="form-control" maxlength="7"
+												name="Pontos" value="<?php echo $produtos['Pontos'] ?>">
+									</div>
 								</div>
 							</div>	
 						</div>		

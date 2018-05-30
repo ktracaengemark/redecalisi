@@ -85,12 +85,13 @@
 								</div>
 								-->
 								<div class="row">									
-									<!--									
+																		
 									<div class="col-md-2">
 										<label for="CodProd">Código:</label><br>
 										<input type="text" class="form-control" maxlength="25"
 												name="CodProd" value="<?php echo $produtos['CodProd'] ?>">
 									</div>
+									<!--
 									<div class="col-md-2">
 										<label for="Prodaux3">Categoria:</label>
 										<select data-placeholder="Selecione uma opção..." class="form-control" <?php echo $readonly; ?>
@@ -146,7 +147,7 @@
 											?>
 										</select>
 									</div>
-									
+									-->
 									<div class="col-md-3">
 										<label for="ValorCompraProduto">Custo:</label><br>
 										<div class="input-group">
@@ -155,7 +156,11 @@
 													name="ValorCompraProduto" value="<?php echo $produtos['ValorCompraProduto'] ?>">
 										</div>
 									</div>
-									-->
+									<div class="col-md-2">
+										<label for="Pontos">Pontos:</label><br>
+										<input type="text" class="form-control" maxlength="7"
+												name="Pontos" value="<?php echo $produtos['Pontos'] ?>">
+									</div>
 								</div>
 							</div>	
 						</div>		
