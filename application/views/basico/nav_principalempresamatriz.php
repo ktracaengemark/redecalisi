@@ -6,7 +6,7 @@
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar1">
 					<span class="sr-only">MENU</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand"> <?php echo $_SESSION['log']['NomeEmpresa']; ?></a>
+				<a href="<?php echo base_url(); ?>acessoempresamatriz/index" class="navbar-brand"> <?php echo $_SESSION['log']['NomeEmpresa2']; ?>/<?php echo $_SESSION['log']['Nome2']; ?></a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar1">
 
@@ -25,16 +25,6 @@
 						</form>
 					</li>
 					-->
-					<li class="btn-toolbar navbar-form navbar-left" role="toolbar" aria-label="...">
-						<div class="btn-group" role="group" aria-label="...">
-							<a href="<?php echo base_url(); ?>acessoempresamatriz/index">
-								<button type="button" class="btn btn-md btn-primary ">
-									<span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION['log']['UsuarioEmpresaMatriz']; ?>
-								</button>
-							</a>
-						</div>
-						<div class="btn-group" role="group" aria-label="..."> </div>
-					</li>
 					<li class="btn-toolbar navbar-form navbar-left" role="toolbar" aria-label="...">
 						<div class="btn-group">
 							<button type="button" class="btn btn-md btn-success dropdown-toggle" data-toggle="dropdown">

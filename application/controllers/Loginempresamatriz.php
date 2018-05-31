@@ -109,7 +109,7 @@ class Loginempresamatriz extends CI_Controller {
                 #$_SESSION['log']['UsuarioEmpresaFilial'] = $query['UsuarioEmpresaFilial'];
                 //se for necessário reduzir o tamanho do nome de usuário, que pode ser um email
                 $_SESSION['log']['UsuarioEmpresaMatriz'] = (strlen($query['UsuarioEmpresaMatriz']) > 15) ? substr($query['UsuarioEmpresaMatriz'], 0, 15) : $query['UsuarioEmpresaMatriz'];
-                $_SESSION['log']['Nome'] = (strlen($query['Nome']) > 10) ? substr($query['Nome'], 0, 10) : $query['Nome'];
+                $_SESSION['log']['Nome2'] = (strlen($query['Nome']) > 8) ? substr($query['Nome'], 0, 8) : $query['Nome'];
 				$_SESSION['log']['Nome'] = $query['Nome'];
 				#$_SESSION['log']['idSis_EmpresaMatriz'] = $query['idSis_EmpresaMatriz'];
 				$_SESSION['log']['id'] = $query['idSis_EmpresaMatriz'];				
