@@ -102,39 +102,10 @@
 												</div>
 												<div class="form-group">
 													<div class="row">
-													
 														<div class="col-md-3">
 															<label for="Email">E-mail:</label>
 															<input type="text" class="form-control" id="Bairro" maxlength="100" <?php echo $readonly; ?>
 																   name="Email" value="<?php echo $query['Email']; ?>">
-														</div>
-														<div class="col-md-2">
-															<label for="Inativo">Ativo?</label><br>
-															<div class="form-group">
-																<div class="btn-group" data-toggle="buttons">
-																	<?php
-																	foreach ($select['Inativo'] as $key => $row) {
-																		(!$query['Inativo']) ? $query['Inativo'] = 'S' : FALSE;
-
-																		if ($query['Inativo'] == $key) {
-																			echo ''
-																			. '<label class="btn btn-warning active" name="radiobutton_Inativo" id="radiobutton_Inativo' . $key . '">'
-																			. '<input type="radio" name="Inativo" id="radiobutton" '
-																			. 'autocomplete="off" value="' . $key . '" checked>' . $row
-																			. '</label>'
-																			;
-																		} else {
-																			echo ''
-																			. '<label class="btn btn-default" name="radiobutton_Inativo" id="radiobutton_Inativo' . $key . '">'
-																			. '<input type="radio" name="Inativo" id="radiobutton" '
-																			. 'autocomplete="off" value="' . $key . '" >' . $row
-																			. '</label>'
-																			;
-																		}
-																	}
-																	?>
-																</div>
-															</div>
 														</div>
 														<!--
 														<div class="col-md-3">
@@ -202,6 +173,129 @@
 												</div>
 												-->
 												<br>
+												<div class="form-group">
+													<div class="row">
+														<div class="col-md-12 text-center">
+															<button class="btn btn-info" type="button" data-toggle="collapse" data-target="#DadosComplementares" aria-expanded="false" aria-controls="DadosComplementares">
+																<span class="glyphicon glyphicon-menu-down"></span> Completar Dados
+															</button>
+														</div>
+													</div>
+												</div>
+
+												<div <?php echo $collapse; ?> id="DadosComplementares">
+
+													<div class="form-group">
+														<div class="row">
+															<div class="col-md-3">
+																<label for="Cpf">CPF:</label>
+																<input type="text" class="form-control" maxlength="11" <?php echo $readonly; ?>
+																	   name="Cpf" value="<?php echo $query['Cpf']; ?>">
+															</div>
+															<div class="col-md-3">
+																<label for="Telefone2">Tel.2 - Fixo ou Celular:</label>
+																<input type="text" class="form-control Celular CelularVariavel" id="Telefone2" maxlength="11" <?php echo $readonly; ?>
+																	   name="Telefone2" placeholder="(XX)999999999" value="<?php echo $query['Telefone2']; ?>">
+															</div>
+															<div class="col-md-3">
+																<label for="Telefone3">Tel.3 - Fixo ou Celular:</label>
+																<input type="text" class="form-control Celular CelularVariavel" id="Telefone3" maxlength="11" <?php echo $readonly; ?>
+																	   name="Telefone3" placeholder="(XX)999999999" value="<?php echo $query['Telefone3']; ?>">
+															</div>																			
+														</div>
+													</div>
+													<div class="form-group">
+														<div class="row">
+															<div class="col-md-3">
+																<label for="Rg">RG:</label>
+																<input type="text" class="form-control" maxlength="9" <?php echo $readonly; ?>
+																	   name="Rg" value="<?php echo $query['Rg']; ?>">
+															</div>
+															<div class="col-md-3">
+																<label for="OrgaoExp">Orgão Exp.:</label>
+																<input type="text" class="form-control" maxlength="45" <?php echo $readonly; ?>
+																	   name="OrgaoExp" value="<?php echo $query['OrgaoExp']; ?>">
+															</div>
+															<div class="col-md-3">
+																<label for="EstadoExp">Estado Emissor:</label>
+																<input type="text" class="form-control" maxlength="2" <?php echo $readonly; ?>
+																	   name="EstadoExp" value="<?php echo $query['EstadoExp']; ?>">
+															</div>
+															<div class="col-md-3">
+																<label for="DataExp">Data de Emissão:</label>
+																<input type="text" class="form-control Date" maxlength="10" <?php echo $readonly; ?>
+																	   name="DataExp" placeholder="DD/MM/AAAA" value="<?php echo $query['DataExp']; ?>">
+															</div>
+														</div>
+													</div>
+
+													<div class="form-group">
+														<div class="row">
+															<div class="col-md-3">
+																<label for="Endereco">Endreço:</label>
+																<input type="text" class="form-control" id="Endereco" maxlength="100" <?php echo $readonly; ?>
+																	   name="Endereco" value="<?php echo $query['Endereco']; ?>">
+															</div>
+															<div class="col-md-3">
+																<label for="Bairro">Bairro:</label>
+																<input type="text" class="form-control" id="Bairro" maxlength="100" <?php echo $readonly; ?>
+																	   name="Bairro" value="<?php echo $query['Bairro']; ?>">
+															</div>
+															<div class="col-md-3">
+																<label for="Municipio">Municipio:</label>
+																<input type="text" class="form-control" maxlength="100" <?php echo $readonly; ?>
+																	   name="Municipio" value="<?php echo $query['Municipio']; ?>">
+															</div>												
+															<div class="col-md-1">
+																<label for="Estado">Estado:</label>
+																<input type="text" class="form-control" id="Estado" maxlength="2" <?php echo $readonly; ?>
+																	   name="Estado" value="<?php echo $query['Estado']; ?>">
+															</div>
+															<div class="col-md-2">
+																<label for="Cep">Cep:</label>
+																<input type="text" class="form-control" id="Cep" maxlength="8" <?php echo $readonly; ?>
+																	   name="Cep" value="<?php echo $query['Cep']; ?>">
+															</div>
+														</div>
+													</div>
+													<div class="form-group">
+														<div class="row">											
+															<div class="col-md-6">
+																<label for="Obs">OBS:</label>
+																<textarea class="form-control" id="Obs" <?php echo $readonly; ?>
+																		  name="Obs"><?php echo $query['Obs']; ?></textarea>
+															</div>
+															<div class="col-md-2">
+																<label for="Inativo">Ativo?</label><br>
+																<div class="form-group">
+																	<div class="btn-group" data-toggle="buttons">
+																		<?php
+																		foreach ($select['Inativo'] as $key => $row) {
+																			(!$query['Inativo']) ? $query['Inativo'] = '0' : FALSE;
+
+																			if ($query['Inativo'] == $key) {
+																				echo ''
+																				. '<label class="btn btn-warning active" name="radiobutton_Inativo" id="radiobutton_Inativo' . $key . '">'
+																				. '<input type="radio" name="Inativo" id="radiobutton" '
+																				. 'autocomplete="off" value="' . $key . '" checked>' . $row
+																				. '</label>'
+																				;
+																			} else {
+																				echo ''
+																				. '<label class="btn btn-default" name="radiobutton_Inativo" id="radiobutton_Inativo' . $key . '">'
+																				. '<input type="radio" name="Inativo" id="radiobutton" '
+																				. 'autocomplete="off" value="' . $key . '" >' . $row
+																				. '</label>'
+																				;
+																			}
+																		}
+																		?>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>										
+												</div>
 
 												<div class="form-group">
 													<div class="row">

@@ -82,6 +82,7 @@ class Funcionario extends CI_Controller {
 		$this->form_validation->set_rules('Senha', 'Senha', 'required|trim');
         $this->form_validation->set_rules('Confirma', 'Confirmar Senha', 'required|trim|matches[Senha]');
         $this->form_validation->set_rules('DataNascimento', 'Data de Nascimento', 'trim|valid_date');
+		$this->form_validation->set_rules('DataEmUsuario', 'Data de Emissão', 'trim|valid_date');
         $this->form_validation->set_rules('Celular', 'Celular', 'required|trim');
 		$this->form_validation->set_rules('Permissao', 'Acesso Às Agendas', 'required|trim');
 		$this->form_validation->set_rules('Funcao', 'Funcao', 'required|trim');
@@ -116,6 +117,7 @@ class Funcionario extends CI_Controller {
 			$data['query']['NomeEmpresa'] = $_SESSION['log']['NomeEmpresa'];
             $data['query']['Senha'] = md5($data['query']['Senha']);
 			$data['query']['DataNascimento'] = $this->basico->mascara_data($data['query']['DataNascimento'], 'mysql');
+			$data['query']['DataEmUsuario'] = $this->basico->mascara_data($data['query']['DataEmUsuario'], 'mysql');
             $data['query']['Codigo'] = md5(uniqid(time() . rand()));
             $data['query']['idTab_Modulo'] = $_SESSION['log']['idTab_Modulo'];
 			$data['query']['Inativo'] = 0;
@@ -198,6 +200,7 @@ class Funcionario extends CI_Controller {
         if ($id) {
             $data['query'] = $this->Funcionario_model->get_funcionario($id);
             $data['query']['DataNascimento'] = $this->basico->mascara_data($data['query']['DataNascimento'], 'barras');
+			$data['query']['DataEmUsuario'] = $this->basico->mascara_data($data['query']['DataEmUsuario'], 'barras');
         }
 
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger" role="alert">', '</div>');
@@ -205,7 +208,8 @@ class Funcionario extends CI_Controller {
         #$this->form_validation->set_rules('Nome', 'Nome do Responsável', 'required|trim|is_unique_duplo[Sis_Usuario.Nome.DataNascimento.' . $this->basico->mascara_data($data['query']['DataNascimento'], 'mysql') . ']');
         $this->form_validation->set_rules('Nome', 'Nome do Responsável', 'required|trim');
         $this->form_validation->set_rules('DataNascimento', 'Data de Nascimento', 'trim|valid_date');
-        $this->form_validation->set_rules('Celular', 'Celular', 'required|trim');
+        $this->form_validation->set_rules('DataEmUsuario', 'Data de Emissão', 'trim|valid_date');
+		$this->form_validation->set_rules('Celular', 'Celular', 'required|trim');
         $this->form_validation->set_rules('Email', 'E-mail', 'trim|valid_email');
 		$this->form_validation->set_rules('Permissao', 'Nível', 'required|trim');
 		$this->form_validation->set_rules('Funcao', 'Funcao', 'required|trim');
@@ -238,6 +242,7 @@ class Funcionario extends CI_Controller {
 
             $data['query']['Nome'] = trim(mb_strtoupper($data['query']['Nome'], 'ISO-8859-1'));
             $data['query']['DataNascimento'] = $this->basico->mascara_data($data['query']['DataNascimento'], 'mysql');
+			$data['query']['DataEmUsuario'] = $this->basico->mascara_data($data['query']['DataEmUsuario'], 'mysql');
             #$data['query']['Obs'] = nl2br($data['query']['Obs']);
             #$data['query']['Funcionario'] = $_SESSION['log']['id'];
 

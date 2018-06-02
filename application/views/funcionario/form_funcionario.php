@@ -132,7 +132,7 @@
 															<div class="btn-group" data-toggle="buttons">
 																<?php
 																foreach ($select['Inativo'] as $key => $row) {
-																	(!$query['Inativo']) ? $query['Inativo'] = 'S' : FALSE;
+																	(!$query['Inativo']) ? $query['Inativo'] = '0' : FALSE;
 
 																	if ($query['Inativo'] == $key) {
 																		echo ''

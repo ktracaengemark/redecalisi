@@ -65,6 +65,20 @@ class Consultorassociado extends CI_Controller {
 			'DataCriacao',
 			'QuemCad',
 			'Associado',
+			'Cpf',
+			'Rg',
+			'OrgaoExp',
+			'EstadoExp',
+			'DataExp',			
+			'Cep',
+            'Telefone2',
+            'Telefone3',
+            'Endereco',
+            'Bairro',
+            'Municipio',
+			'Estado',
+			'Titulo',
+			'Obs',			
 
         ), TRUE));
 
@@ -78,7 +92,8 @@ class Consultorassociado extends CI_Controller {
 		$this->form_validation->set_rules('Senha', 'Senha', 'required|trim');
         $this->form_validation->set_rules('Confirma', 'Confirmar Senha', 'required|trim|matches[Senha]');
         $this->form_validation->set_rules('DataNascimento', 'Data de Nascimento', 'trim|valid_date');
-        $this->form_validation->set_rules('Celular', 'Celular', 'required|trim');
+        $this->form_validation->set_rules('DataExp', 'Data de Emissão', 'trim|valid_date');
+		$this->form_validation->set_rules('Celular', 'Celular', 'required|trim');
 		#$this->form_validation->set_rules('Permissao', 'Nível', 'required|trim');
 		#$this->form_validation->set_rules('Funcao', 'Funcao', 'required|trim');
 
@@ -95,6 +110,14 @@ class Consultorassociado extends CI_Controller {
         $data['panel'] = 'primary';
         $data['metodo'] = 1;
 
+        if ($data['query']['Sexo'] || $data['query']['Endereco'] || $data['query']['Bairro'] ||
+			$data['query']['Municipio'] || $data['query']['Estado'] || $data['query']['Obs'] || $data['query']['Email'] || 
+			$data['query']['Cep'] || $data['query']['Cpf'] || $data['query']['Rg']  || $data['query']['OrgaoExp'] || 
+			$data['query']['EstadoExp']  || $data['query']['DataExp'])
+            $data['collapse'] = '';
+        else
+            $data['collapse'] = 'class="collapse"';	
+		
         $data['sidebar'] = 'col-sm-3 col-md-2';
         $data['main'] = 'col-sm-7 col-md-8';
 
@@ -113,7 +136,8 @@ class Consultorassociado extends CI_Controller {
 			$data['query']['QuemCad'] = $_SESSION['log']['id'];
 			$data['query']['Senha'] = md5($data['query']['Senha']);
 			$data['query']['DataNascimento'] = $this->basico->mascara_data($data['query']['DataNascimento'], 'mysql');
-            $data['query']['DataCriacao'] = $this->basico->mascara_data($data['query']['DataCriacao'], 'mysql');
+            $data['query']['DataExp'] = $this->basico->mascara_data($data['query']['DataExp'], 'mysql');
+			$data['query']['DataCriacao'] = $this->basico->mascara_data($data['query']['DataCriacao'], 'mysql');
 			$data['query']['Codigo'] = md5(uniqid(time() . rand()));
             $data['query']['idTab_Modulo'] = $_SESSION['log']['idTab_Modulo'];
 			$data['query']['Inativo'] = 0;
@@ -181,12 +205,27 @@ class Consultorassociado extends CI_Controller {
 			#'Permissao',
 			#'Funcao',
 			'Inativo',
+			'Cpf',
+			'Rg',
+			'OrgaoExp',
+			'EstadoExp',
+			'DataExp',			
+			'Cep',
+            'Telefone2',
+            'Telefone3',
+            'Endereco',
+            'Bairro',
+            'Municipio',
+			'Estado',
+			'Titulo',
+			'Obs',			
 
         ), TRUE);
 
         if ($id) {
             $data['query'] = $this->Consultor_model->get_consultor($id);
             $data['query']['DataNascimento'] = $this->basico->mascara_data($data['query']['DataNascimento'], 'barras');
+			$data['query']['DataExp'] = $this->basico->mascara_data($data['query']['DataExp'], 'barras');
         }
 
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger" role="alert">', '</div>');
@@ -194,7 +233,8 @@ class Consultorassociado extends CI_Controller {
         #$this->form_validation->set_rules('NomeConsultor', 'NomeConsultor do Responsável', 'required|trim|is_unique_duplo[App_Consultor.NomeConsultor.DataNascimento.' . $this->basico->mascara_data($data['query']['DataNascimento'], 'mysql') . ']');
         $this->form_validation->set_rules('NomeConsultor', 'NomeConsultor do Responsável', 'required|trim');
         $this->form_validation->set_rules('DataNascimento', 'Data de Nascimento', 'trim|valid_date');
-        $this->form_validation->set_rules('Celular', 'Celular', 'required|trim');
+        $this->form_validation->set_rules('DataExp', 'Data de Emissão', 'trim|valid_date');
+		$this->form_validation->set_rules('Celular', 'Celular', 'required|trim');
         $this->form_validation->set_rules('Email', 'E-mail', 'trim|valid_email');
 		#$this->form_validation->set_rules('Permissao', 'Nível', 'required|trim');
 		#$this->form_validation->set_rules('Funcao', 'Funcao', 'required|trim');
@@ -213,7 +253,13 @@ class Consultorassociado extends CI_Controller {
         $data['panel'] = 'primary';
         $data['metodo'] = 2;
 
-
+        if ($data['query']['Sexo'] || $data['query']['Endereco'] || $data['query']['Bairro'] ||
+			$data['query']['Municipio'] || $data['query']['Estado'] || $data['query']['Obs'] || $data['query']['Email'] || 
+			$data['query']['Cep'] || $data['query']['Cpf'] || $data['query']['Rg']  || $data['query']['OrgaoExp'] || 
+			$data['query']['EstadoExp']  || $data['query']['DataExp'])
+            $data['collapse'] = '';
+        else
+            $data['collapse'] = 'class="collapse"';	
 
         $data['nav_secundario'] = $this->load->view('consultor/nav_secundario', $data, TRUE);
 
@@ -227,7 +273,8 @@ class Consultorassociado extends CI_Controller {
 
             $data['query']['NomeConsultor'] = trim(mb_strtoupper($data['query']['NomeConsultor'], 'ISO-8859-1'));
             $data['query']['DataNascimento'] = $this->basico->mascara_data($data['query']['DataNascimento'], 'mysql');
-            #$data['query']['Obs'] = nl2br($data['query']['Obs']);
+            $data['query']['DataExp'] = $this->basico->mascara_data($data['query']['DataExp'], 'mysql');
+			#$data['query']['Obs'] = nl2br($data['query']['Obs']);
 
 
             $data['anterior'] = $this->Consultor_model->get_consultor($data['query']['idApp_Consultor']);
