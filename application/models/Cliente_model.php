@@ -29,7 +29,7 @@ class Cliente_model extends CI_Model {
         }
     }
 
-    public function get_cliente1($data) {
+    public function get_cliente($data) {
         $query = $this->db->query('SELECT * FROM App_Cliente WHERE idApp_Cliente = ' . $data);
 
         $query = $query->result_array();
@@ -37,7 +37,7 @@ class Cliente_model extends CI_Model {
         return $query[0];
     }
 	
-	public function get_cliente($data) {
+	public function get_cliente1($data) {
         $query = $this->db->query('
 		SELECT *
 
@@ -73,7 +73,7 @@ class Cliente_model extends CI_Model {
 
     public function delete_cliente($data) {
 
-        $query = $this->db->query('SELECT idApp_OrcaTrata FROM App_OrcaTrata WHERE idApp_Cliente = ' . $data);
+        $query = $this->db->query('SELECT idApp_OrcaTrataCons FROM App_OrcaTrataCons WHERE idApp_Cliente = ' . $data);
         $query = $query->result_array();
 
         /*
@@ -87,7 +87,7 @@ class Cliente_model extends CI_Model {
 
         foreach ($query as $key) {
             /*
-            echo $key['idApp_OrcaTrata'];
+            echo $key['idApp_OrcaTrataCons'];
             echo '<br />';
             #echo $value;
             echo '<br />';
@@ -101,13 +101,13 @@ class Cliente_model extends CI_Model {
         $this->db->delete('App_ContatoCliente', array('idApp_Cliente' => $data));
 
         foreach ($query as $key) {
-            $query = $this->db->delete('App_ProdutoVenda', array('idApp_OrcaTrata' => $key['idApp_OrcaTrata']));
-            $query = $this->db->delete('App_ServicoVenda', array('idApp_OrcaTrata' => $key['idApp_OrcaTrata']));
-            $query = $this->db->delete('App_ParcelasRecebiveis', array('idApp_OrcaTrata' => $key['idApp_OrcaTrata']));
-            $query = $this->db->delete('App_Procedimento', array('idApp_OrcaTrata' => $key['idApp_OrcaTrata']));
+            $query = $this->db->delete('App_ProdutoVendaCons', array('idApp_OrcaTrataCons' => $key['idApp_OrcaTrataCons']));
+            $query = $this->db->delete('App_ServicoVendaCons', array('idApp_OrcaTrataCons' => $key['idApp_OrcaTrataCons']));
+            $query = $this->db->delete('App_ParcelasRecebiveisCons', array('idApp_OrcaTrataCons' => $key['idApp_OrcaTrataCons']));
+            $query = $this->db->delete('App_ProcedimentoCons', array('idApp_OrcaTrataCons' => $key['idApp_OrcaTrataCons']));
         }
 
-        $this->db->delete('App_OrcaTrata', array('idApp_Cliente' => $data));
+        $this->db->delete('App_OrcaTrataCons', array('idApp_Cliente' => $data));
         $this->db->delete('App_Cliente', array('idApp_Cliente' => $data));
 
         if ($this->db->affected_rows() === 0) {
